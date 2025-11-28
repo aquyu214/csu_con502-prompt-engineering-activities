@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CON 502 – Prompt Engineering Activities</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f7f7;
+      color: #222;
+    }
+    header {
+      background: #1c4f2b;
+      color: white;
+      padding: 1.2rem 1.5rem;
+    }
+    header h1 {
+      margin: 0 0 0.25rem 0;
+      font-size: 1.4rem;
+    }
+    header p {
+      margin: 0;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    main {
+      max-width: 900px;
+      margin: 1.5rem auto 2rem;
+      padding: 0 1rem;
+    }
+    .activity {
+      background: white;
+      border-radius: 10px;
+      padding: 1.2rem 1.3rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    }
+    .activity h2 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: #1c4f2b;
+    }
+    .activity p {
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+    }
+    textarea {
+      width: 100%;
+      min-height: 130px;
+      margin-top: 0.6rem;
+      box-sizing: border-box;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      padding: 0.6rem;
+      font-size: 0.85rem;
+      font-family: inherit;
+      resize: vertical;
+      background: #fafafa;
+    }
+    button.copy-btn {
+      margin-top: 0.6rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: none;
+      background: #1c4f2b;
+      color: white;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    button.copy-btn:disabled {
+      opacity: 0.6;
+      cursor: default;
+    }
+    .status {
+      display: inline-block;
+      margin-left: 0.5rem;
+      font-size: 0.8rem;
+      color: #1c4f2b;
+    }
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.2rem; }
+      .activity { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CON 502 – Prompt Engineering Activities</h1>
+    <p>Use these prompts during class. You can copy and paste them into ChatGPT, Gemini, etc.</p>
+  </header>
+
+  <main>
+    <!-- Activity 1: Keyword Generation -->
+    <section class="activity">
+      <h2>Activity 1 – Keyword Generation (Zero-shot)</h2>
+      <p>Use this prompt with your own research topic to generate keywords and Boolean strings.</p>
+      <textarea id="prompt1" readonly>
+Generate a list of keywords and synonyms for the topic &lt;insert your topic here&gt;. Include:
+- Main keywords
+- Synonyms or related terms
+- Technical terms used in construction management (or my field)
+- Broader terms
+- Narrower terms
+
+Then produce three example Boolean search strings that I could use in databases like Scopus, Web of Science, or Google Scholar.</textarea>
+      <div>
+        <button class="copy-btn" data-target="prompt1">Copy prompt</button>
+        <span class="status" id="status1"></span>
+      </div>
+    </section>
+
+    <!-- Activity 2: Structured Summaries -->
+    <section class="activity">
+      <h2>Activity 2 – Structured Literature Summaries (Few-shot)</h2>
+      <p>First paste one example abstract and its structured summary. Then use this pattern for a new abstract.</p>
+      <textarea id="prompt2" readonly>
+Here is an example of a structured summary format I want you to follow:
+
+- Research Problem:
+- Methods Used:
+- Project Context / Setting:
+- Key Findings:
+- Practical Implications for Construction Management:
+
+Using the structure shown above, summarize the following construction management article abstract in the same style and format:
+
+&lt;paste abstract here&gt;</textarea>
+      <div>
+        <button class="copy-btn" data-target="prompt2">Copy prompt</button>
+        <span class="status" id="status2"></span>
+      </div>
+    </section>
+
+    <!-- Activity 3: Role Prompting – Expert Feedback -->
+    <section class="activity">
+      <h2>Activity 3 – Expert Feedback on Research Questions (Role prompting)</h2>
+      <p>Use this to get critique on your research question from an “expert”. Replace the role and question with your own.</p>
+      <textarea id="prompt3" readonly>
+Act as a [construction safety researcher / sustainability expert / construction management researcher].
+
+Here are the research question(s) I would like you to evaluate:
+&lt;insert your research question(s) here&gt;
+
+Provide an expert critique focusing on:
+- Clarity and specificity
+- Feasibility in realistic research settings
+- Alignment with current research gaps
+- Suggested improvements or alternative questions
+
+Then rewrite the research question(s) in a clearer and more feasible form.</textarea>
+      <div>
+        <button class="copy-btn" data-target="prompt3">Copy prompt</button>
+        <span class="status" id="status3"></span>
+      </div>
+    </section>
+
+    <!-- Activity 4: Contextual Prompting – Research Design -->
+    <section class="activity">
+      <h2>Activity 4 – Contextual Prompting for Research Design</h2>
+      <p>Use this to get suggestions for data collection and methods based on a short project context.</p>
+      <textarea id="prompt4" readonly>
+Here is the context for my study:
+&lt;insert 2–4 sentences describing the project or topic context&gt;
+
+My research question(s) is/are:
+&lt;insert your research question(s) here&gt;
+
+Based on this context, please suggest:
+- Possible data collection methods
+- Key variables to consider
+- Suitable analytical or statistical methods
+
+Then summarize a refined research approach that fits this context.</textarea>
+      <div>
+        <button class="copy-btn" data-target="prompt4">Copy prompt</button>
+        <span class="status" id="status4"></span>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function copyPrompt(targetId, statusId) {
+      const textarea = document.getElementById(targetId);
+      const status = document.getElementById(statusId);
+      const button = document.querySelector('button[data-target="' + targetId + '"]');
+
+      if (!textarea) return;
+
+      navigator.clipboard.writeText(textarea.value)
+        .then(() => {
+          status.textContent = "Copied!";
+          button.disabled = true;
+          setTimeout(() => {
+            status.textContent = "";
+            button.disabled = false;
+          }, 1500);
+        })
+        .catch(() => {
+          status.textContent = "Copy failed. Please select and copy manually.";
+        });
+    }
+
+    document.querySelectorAll(".copy-btn").forEach((btn, index) => {
+      btn.addEventListener("click", () => {
+        const target = btn.getAttribute("data-target");
+        copyPrompt(target, "status" + (index + 1));
+      });
+    });
+  </script>
+</body>
+</html>
