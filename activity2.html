@@ -4,18 +4,37 @@
   <meta charset="UTF-8">
   <title>Activity 2 – Structured Literature Summaries</title>
   <style>
-    body { font-family: sans-serif; max-width: 700px; margin: 2rem auto; }
-    textarea { width: 100%; height: 200px; padding: 0.6rem; font-family: inherit; font-size: 0.9rem; }
-    button { margin-top: 0.6rem; padding: 0.5rem 1rem; border: none; border-radius: 6px; background: #1c4f2b; color: white; cursor: pointer; }
+    body { font-family: sans-serif; max-width: 750px; margin: 2rem auto; line-height: 1.5; }
+    textarea { 
+      width: 100%; 
+      height: 380px; 
+      padding: 0.8rem; 
+      font-family: inherit; 
+      font-size: 0.9rem; 
+      white-space: pre-wrap;
+    }
+    button { 
+      margin-top: 0.8rem; 
+      padding: 0.6rem 1.2rem; 
+      border: none; 
+      border-radius: 6px; 
+      background: #1c4f2b; 
+      color: white; 
+      font-size: 1rem; 
+      cursor: pointer; 
+    }
+    button:hover { background: #24633a; }
     a.home { display: block; margin-top: 2rem; color: #1c4f2b; text-decoration: none; }
   </style>
 </head>
+
 <body>
   <h1>Activity 2 – Structured Literature Summaries (Few-shot)</h1>
 
   <p>
-    Use this prompt to create a <strong>structured summary</strong> of an article.
-    Replace the placeholder with your own abstract.
+    Below is the improved prompt that includes a full <strong>few-shot example</strong> to help the AI
+    understand exactly how to structure your summary.  
+    Click the button to copy the prompt to your clipboard.
   </p>
 
   <textarea readonly id="prompt">
@@ -27,9 +46,53 @@ Here is the structured summary format I want you to follow:
 - Key Findings:
 - Practical Implications for Construction Management:
 
-Using the structure shown above, summarize the following construction management article abstract in the same style and format:
+------------------------------------------
+FEW-SHOT EXAMPLE (using a published MT study)
+------------------------------------------
+
+Abstract (Example):
+Mass timber construction (MTC) has emerged as a sustainable alternative... [abstract truncated for prompt length]
+
+Structured Summary (Example):
+
+- Research Problem:
+  Occupational safety risks in mass timber construction are not well understood,
+  especially compared to concrete and steel.
+
+- Methods Used:
+  A national web-based survey of OSHA-authorized safety trainers; descriptive
+  statistics, chi-square tests, and Mann–Whitney U tests.
+
+- Project Context / Setting:
+  Mass timber projects across the U.S., reported by safety professionals with
+  varying levels of MT experience.
+
+- Key Findings:
+  Safety professionals with MT experience generally perceive MT projects as safer
+  than concrete or steel, while non-experienced respondents are more neutral.
+  A gap exists between hazards actually witnessed (struck-by, falls from height,
+  caught-in/between) and hazards perceived (fire, chemical exposure).
+
+- Practical Implications for Construction Management:
+  Mass timber requires safety training tailored to rigging, lifting, temporary
+  stability, and environmental exposure. Stronger hazard-recognition training and
+  near-miss reporting can close the perception gap and improve outcomes.
+
+------------------------------------------
+YOUR TURN
+------------------------------------------
+
+Using the structure shown above, summarize the following construction management
+article abstract in the same style and format:
 
 <paste abstract here>
   </textarea>
 
-  <button onclick="navigator.clipboard.writeText(document.getElementById('prompt').value)">Co
+  <button onclick="navigator.clipboard.writeText(document.getElementById('prompt').value)">
+    Copy Prompt
+  </button>
+
+  <a class="home" href="index.html">← Back to Home</a>
+
+</body>
+</html>
