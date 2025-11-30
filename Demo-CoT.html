@@ -1,272 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>Tunneling Ethics – Prompt Engineering Demo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Activity – Tunneling Ethics (Standard vs CoT)</title>
   <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem 1rem 4rem;
-      line-height: 1.6;
-      background: #f6f7fb;
-      color: #222;
-    }
-
-    h1, h2, h3 {
-      margin-top: 0;
-      color: #1f2933;
-    }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 0.25rem;
-    }
-
-    h2 {
-      font-size: 1.4rem;
-      margin-top: 2rem;
-    }
-
-    h3 {
-      font-size: 1.1rem;
-      margin-top: 1.5rem;
-    }
-
-    p {
-      margin: 0.5rem 0;
-    }
-
-    .tagline {
-      color: #4b5563;
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-    }
-
-    .card {
-      background: #ffffff;
-      border-radius: 0.75rem;
-      padding: 1.5rem;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
-      margin-bottom: 1.75rem;
-      border: 1px solid #e5e7eb;
-    }
-
-    .case-label {
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.07em;
-      color: #6b7280;
-      margin-bottom: 0.25rem;
-    }
-
-    .option-title {
-      font-weight: 600;
-      margin-top: 0.75rem;
-    }
-
-    .highlight {
-      font-weight: 600;
-      color: #1d4ed8;
-    }
-
-    .prompt-box {
-      position: relative;
-      margin-top: 0.5rem;
-    }
-
+    body { font-family: sans-serif; max-width: 700px; margin: 2rem auto; }
     textarea {
       width: 100%;
-      min-height: 280px;
-      padding: 1rem;
-      border-radius: 0.75rem;
-      border: 1px solid #d1d5db;
-      background: #0b1020;
-      color: #e5e7eb;
-      font-family: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      height: 180px;
+      padding: 0.6rem;
+      font-family: inherit;
       font-size: 0.9rem;
-      line-height: 1.5;
-      box-sizing: border-box;
-      resize: vertical;
-      white-space: pre;
+      margin-bottom: 0.5rem;
     }
-
-    .hint {
-      font-size: 0.85rem;
-      color: #6b7280;
-      margin-top: 0.35rem;
+    button {
+      margin-bottom: 1.5rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 6px;
+      background: #1c4f2b;
+      color: white;
+      cursor: pointer;
     }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      padding: 0.1rem 0.55rem;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      background: #e0ecff;
-      color: #1d4ed8;
-      font-weight: 600;
+    a.home {
+      display: block;
+      margin-top: 2rem;
+      color: #1c4f2b;
     }
-
-    .badge span {
-      font-size: 0.8rem;
-    }
-
-    ul {
-      margin: 0.35rem 0 0.5rem 1.2rem;
-      padding: 0;
-    }
-
-    li {
-      margin: 0.15rem 0;
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 1.5rem 1rem 3rem;
-      }
-
-      textarea {
-        min-height: 260px;
-      }
-    }
+    h2 { margin-top: 2rem; }
   </style>
 </head>
+
 <body>
-  <header>
-    <h1>Tunneling Ethics Case</h1>
-    <p class="tagline">
-      Prompt engineering demo – students can copy the prompt below into any generative AI tool.
-    </p>
-  </header>
+  <h1>Activity – Tunneling Ethics (Prompt Engineering)</h1>
 
-  <section class="card">
-    <div class="case-label">Case Description</div>
-    <h2>Behind-Schedule Municipal Tunneling Project</h2>
-    <p>
-      A municipal civil project is behind schedule. The next phase involves <span class="highlight">tunneling</span>.
-      The Project Manager has identified two options:
-    </p>
+  <p>
+    Below is the scenario for this activity. Read it first, then choose either the
+    <strong>Standard Prompt</strong> or the <strong>Chain-of-Thought Prompt</strong>
+    to paste into a generative AI tool.
+  </p>
 
-    <p class="option-title">Option X – New, Unproven Technology</p>
-    <ul>
-      <li>Uses a new, unproven safety technology.</li>
-      <li>Saves <strong>6 weeks</strong> compared to the standard method.</li>
-      <li>Has a <strong>1% chance</strong> of temporary toxic gas release (low—but non-zero—public risk).</li>
-    </ul>
+  <p>
+    <strong>Scenario:</strong><br>
+    A municipal civil project is behind schedule. The Project Manager has identified two options for the next phase (tunneling):
+  </p>
 
-    <p class="option-title">Option Y – Standard, Proven Technology</p>
-    <ul>
-      <li>Uses standard, slower technology that is well understood.</li>
-      <li>Takes <strong>6 weeks longer</strong> than Option X.</li>
-      <li>Is considered <strong>100% safe</strong> for the surrounding community.</li>
-    </ul>
+  <ul>
+    <li>
+      <strong>Option X:</strong> Uses a new, unproven safety technology that saves 6 weeks but has a
+      1% chance of temporary toxic gas release (low public risk).
+    </li>
+    <li>
+      <strong>Option Y:</strong> Uses standard, slower technology (takes 6 weeks longer) but is
+      100% safe for the surrounding community.
+    </li>
+  </ul>
 
-    <p>
-      The contract includes a <strong>$500,000 liquidated damages</strong> penalty if the project misses the deadline.
-    </p>
-  </section>
+  <p>
+    The contract includes a <strong>$500,000 liquidated damages</strong> penalty if the deadline is missed.
+  </p>
 
-  <section class="card">
-    <div class="case-label">Copyable Prompt</div>
-    <div class="badge">
-      <span>🧠</span> Prompt for Generative AI
-    </div>
-    <h2>Use This Prompt in ChatGPT or Another AI Tool</h2>
-    <p>
-      Students: copy the text below and paste it into the generative AI tool of your choice.
-      You can then compare different models’ reasoning and outputs.
-    </p>
+  <!-- Standard Prompt -->
+  <h2>Standardized Prompt</h2>
+  <textarea readonly id="stdPrompt">
+A municipal civil project is behind schedule. The Project Manager has identified two options for the next phase (tunneling):
 
-    <div class="prompt-box">
-      <textarea readonly>
-You are an AI assistant helping a construction management student analyze an ethics dilemma in a municipal infrastructure project. Read the case carefully and then respond using the structured framework below.
+Option X: Uses a new, unproven safety technology that saves 6 weeks but has a 1% chance of temporary toxic gas release (low public risk).
 
----
+Option Y: Uses standard, slower technology (takes 6 weeks longer) but is 100% safe for the surrounding community. The contract has a $500,000 liquidated damages penalty if the deadline is missed.
 
-CASE SUMMARY
+Which option should the Project Manager choose and why?
+  </textarea>
 
-A municipal civil project is behind schedule. The next phase involves tunneling. The Project Manager has two options:
+  <button onclick="navigator.clipboard.writeText(document.getElementById('stdPrompt').value)">
+    Copy Standardized Prompt
+  </button>
 
-• Option X: Uses a new, unproven safety technology that saves 6 weeks but has a 1% chance of temporary toxic gas release (low—but non-zero—public risk).
+  <!-- Chain-of-Thought Prompt -->
+  <h2>Chain-of-Thought (CoT) Prompt</h2>
+  <textarea readonly id="cotPrompt">
+A municipal civil project is behind schedule. The Project Manager has identified two options for the next phase (tunneling):
 
-• Option Y: Uses standard, slower technology that takes 6 weeks longer but is considered 100% safe for the surrounding community.
+Option X: Uses a new, unproven safety technology that saves 6 weeks but has a 1% chance of temporary toxic gas release (low public risk).
 
-The construction contract includes a $500,000 liquidated damages penalty if the deadline is missed.
+Option Y: Uses standard, slower technology (takes 6 weeks longer) but is 100% safe for the surrounding community. The contract has a $500,000 liquidated damages penalty if the deadline is missed.
 
----
+Analyze the dilemma using a research framework. Let's think step by step:
+1. Identify the Stakeholders (Client, Contractor, Community, Safety Regulator).
+2. List the primary Goal/Constraint of each stakeholder (e.g., Client: Schedule/Cost; Regulator: Zero Risk).
+3. Apply the Precautionary Principle (Civil/Environmental Ethics).
+4. Use a Weighted Matrix to justify a final recommendation, prioritizing Public Safety over Financial Penalty.
+5. Formulate a final decision and a communication strategy for the client.
+  </textarea>
 
-TASK: Analyze this dilemma using a research-style decision framework. Follow these steps explicitly and label each section in your answer.
+  <button onclick="navigator.clipboard.writeText(document.getElementById('cotPrompt').value)">
+    Copy CoT Prompt
+  </button>
 
-1. Identify the stakeholders  
-   - At minimum, discuss:  
-     • Client (municipality / public owner)  
-     • Contractor (construction firm)  
-     • Community (nearby residents, general public, environment)  
-     • Safety Regulator (e.g., OSHA / environmental authority)  
-   - Briefly explain what role each stakeholder plays in this decision.
-
-2. List the primary goal/constraint of each stakeholder  
-   - For each of the four stakeholders, state:  
-     • Their main goals (e.g., schedule, cost, safety, reputation).  
-     • Their hard constraints or non-negotiables.  
-   - Use 1–3 bullet points per stakeholder, e.g.:  
-     - Client: deliver the project close to schedule and budget; avoid public harm and political fallout.  
-     - Regulator: ensure zero unacceptable risk to public and workers; uphold safety standards.
-
-3. Apply the Precautionary Principle (civil/environmental ethics)  
-   - Define the precautionary principle in your own words.  
-   - Explain how it applies to this case when comparing Option X (1% toxic gas risk) with Option Y (0% toxic gas risk but schedule delay and cost).  
-   - Discuss why public infrastructure projects often treat safety as a constraint instead of something to trade off against cost or schedule.
-
-4. Use a weighted decision matrix to compare Option X and Option Y  
-   - Propose 4–6 evaluation criteria that are relevant to this decision, such as:  
-     • Public safety (community health risk)  
-     • Regulatory / legal exposure  
-     • Schedule and liquidated damages impact  
-     • Reputation and public trust  
-     • Technical reliability (proven vs. unproven methods)  
-   - Assign reasonable weights to each criterion that reflect a public-sector, safety-first viewpoint (weights should sum to 100%).  
-   - Score each option (X and Y) on a 1–5 scale for each criterion (5 = very favorable, 1 = very unfavorable).  
-   - Show the weighted score calculation clearly and identify which option is preferred based on this matrix.
-
-5. Formulate a final decision and justification  
-   - State clearly which option the Project Manager should choose (Option X or Option Y).  
-   - Justify the decision using:  
-     • The stakeholder analysis  
-     • The precautionary principle  
-     • The weighted decision matrix results  
-   - Emphasize how public safety is prioritized relative to the financial penalty for liquidated damages.
-
-6. Propose a communication strategy for the client (municipality)  
-   - Draft a short, professional explanation that the Project Manager could use when speaking with the client and/or city officials.  
-   - The explanation should:  
-     • Reference safety and regulatory obligations  
-     • Acknowledge the schedule and cost impacts honestly  
-     • Present the decision as a responsible, ethics-based choice  
-     • Suggest any possible mitigation steps (e.g., resequencing work, exploring overtime, negotiating time extensions or partial relief of liquidated damages).
-
----
-
-Format your answer with clear headings for each step (1–6) so a student can easily see how you applied the research framework.
-      </textarea>
-      <p class="hint">
-        Tip: Click inside the box, press <strong>Ctrl+A</strong> (Windows) or <strong>Cmd+A</strong> (Mac) to select all, then copy.
-      </p>
-    </div>
-  </section>
-
-  <section class="card">
-    <h3>Suggested Classroom Use</h3>
-    <ul>
-      <li>Ask students to use this prompt with different AI tools (e.g., ChatGPT, Claude, Gemini) and compare outputs.</li>
-      <li>Have them critique: stakeholder coverage, ethics reasoning, and the quality of the weighted matrix.</li>
-      <li>Optionally, let them modify the weights or add criteria and see how the recommendation changes.</li>
-    </ul>
-  </section>
+  <a href="index.html" class="home">← Back to activities</a>
 </body>
 </html>
