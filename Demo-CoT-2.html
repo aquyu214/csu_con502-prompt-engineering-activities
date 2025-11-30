@@ -7,11 +7,15 @@
     body { font-family: sans-serif; max-width: 700px; margin: 2rem auto; }
     textarea {
       width: 100%;
-      height: 180px;
+      min-height: 120px;
+      height: auto;
       padding: 0.6rem;
       font-family: inherit;
       font-size: 0.9rem;
       margin-bottom: 0.5rem;
+      overflow-y: hidden; /* no scrollbar */
+      resize: none;       /* prevent user resizing */
+      white-space: pre-wrap;
     }
     button {
       margin-bottom: 1.5rem;
@@ -103,5 +107,15 @@ Analyze the dilemma using a research framework. Let's think step by step:
   </button>
 
   <a href="index.html" class="home">← Back to activities</a>
+
+  <!-- Auto-expand script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelectorAll("textarea").forEach(function(el) {
+        el.style.height = el.scrollHeight + "px";
+      });
+    });
+  </script>
+
 </body>
 </html>
