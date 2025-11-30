@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Activity – Visual Scenario Generation Challenge</title>
+  <style>
+    body { 
+      font-family: sans-serif; 
+      max-width: 700px; 
+      margin: 2rem auto; 
+      line-height: 1.6; 
+    }
+    textarea {
+      width: 100%; 
+      height: 150px; 
+      padding: 0.6rem;
+      font-family: inherit; 
+      font-size: 0.9rem;
+    }
+    button {
+      margin-top: 0.6rem; 
+      padding: 0.5rem 1rem;
+      border: none; 
+      border-radius: 6px; 
+      background: #1c4f2b; 
+      color: white;
+    }
+    a.home { 
+      display: block; 
+      margin-top: 2rem; 
+      color: #1c4f2b; 
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Activity – Visual Scenario Generation Challenge</h1>
+  <p><strong>Automatic Prompt Engineering (APE) encouraged.</strong></p>
+  <p><strong>Time:</strong> 10–15 minutes</p>
+
+  <h2>Scenario (Real CDC FACE Case)</h2>
+  <p>
+    This activity uses a real construction accident case from the CDC FACE Program.
+    Please review the case here:
+    <br>
+    <a href="https://stacks.cdc.gov/view/cdc/164823" target="_blank">
+      https://stacks.cdc.gov/view/cdc/164823
+    </a>
+  </p>
+
+  <p><strong>Scenario summary:</strong></p>
+  <p>
+    An ironworker was installing rebar in a five-foot trench next to an existing cinder-block retaining wall.
+    The trench had been excavated <strong>below the base of the retaining wall</strong>, and there was 
+    <strong>no shoring, bracing, or structural support</strong> for the adjacent wall.
+    The retaining wall collapsed suddenly into the trench, fatally striking the worker.
+  </p>
+
+  <hr>
+
+  <h2>Your Task</h2>
+  <p>
+    Use <strong>any prompt engineering techniques you'd like</strong> to generate 
+    an image that realistically represents this accident scenario.
+  </p>
+
+  <p>You may use:</p>
+  <ul>
+    <li>Standard prompting</li>
+    <li>Chain-of-Thought prompting</li>
+    <li><strong>Automatic Prompt Engineering (APE)</strong></li>
+    <li>Prompt rewriting / prompt mutation</li>
+    <li>Detail enhancement / constraint-based prompting</li>
+  </ul>
+
+  <p>
+    Your goal is to produce the <strong>most realistic, accurate, and detailed</strong> visual scene.
+  </p>
+
+  <hr>
+
+  <h2>Suggested APE Instruction (Optional)</h2>
+  <p>Copy this if you want help improving your prompt:</p>
+
+  <textarea readonly id="prompt">
+Generate 5 improved image-generation prompts that describe the CDC FACE trench-collapse scenario more clearly, with more detail, and with accurate construction-safety elements. Rank the 5 prompts from best to worst and explain why.
+  </textarea>
+
+  <button onclick="navigator.clipboard.writeText(document.getElementById('prompt').value)">
+    Copy Prompt
+  </button>
+
+  <hr>
+
+  <h2>Instructions</h2>
+  <ul>
+    <li>Read the CDC case summary.</li>
+    <li>Try different prompt-engineering strategies.</li>
+    <li>Use APE to refine and improve your prompt.</li>
+    <li>Generate several images and choose your best one.</li>
+    <li>Submit <strong>one final image</strong> for voting.</li>
+  </ul>
+
+  <p><strong>Name your submission:</strong><br>
+    <code>YourName_VisualScenarioPromptCompetition</code>
+  </p>
+
+  <hr>
+
+  <h2>Class Voting</h2>
+  <p>We will vote on:</p>
+  <ul>
+    <li><strong>Most Realistic</strong></li>
+    <li><strong>Most Accurate to the Case</strong></li>
+    <li><strong>Best Safety Representation</strong></li>
+    <li><strong>Best Use of Prompt Engineering</strong></li>
+    <li><strong>Best Overall</strong></li>
+  </ul>
+
+  <p>Winner earns the title: <strong>Prompt Engineer of the Day 🎉</strong></p>
+
+  <hr>
+
+  <p><strong>Note:</strong>  
+    This activity involves a real fatal incident.  
+    Please engage with professionalism and respect.  
+    The purpose is to improve safety communication and hazard awareness.
+  </p>
+
+  <a href="index.html" class="home">← Back to activities</a>
+
+</body>
+</html>
