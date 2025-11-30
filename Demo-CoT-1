@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Activity – Weekend Trip Planning (Standard vs CoT)</title>
+  <style>
+    body { font-family: sans-serif; max-width: 700px; margin: 2rem auto; }
+    textarea {
+      width: 100%;
+      height: 180px;
+      padding: 0.6rem;
+      font-family: inherit;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    button {
+      margin-bottom: 1.5rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 6px;
+      background: #1c4f2b;
+      color: white;
+      cursor: pointer;
+    }
+    a.home {
+      display: block;
+      margin-top: 2rem;
+      color: #1c4f2b;
+    }
+    h2 { margin-top: 2rem; }
+  </style>
+</head>
+
+<body>
+  <h1>Demo – Chain-of-Thought (Weekend Trip Planning)</h1>
+
+  <p>
+    Below is the scenario for this activity. Read it first, then 
+    copy and run the <strong>Standard Prompt</strong> in a generative AI tool. 
+    After that, copy and run the <strong>Chain-of-Thought Prompt</strong>.
+  </p>
+
+  <p>
+    <strong>Scenario:</strong><br>
+    You are a CSU student planning a one-day weekend trip in Fort Collins. You don’t have a car, so you will rely on 
+    public transit (Transfort), walking, or biking. You are on a student budget and want a mix of nature, food, and 
+    something fun, starting and ending at the CSU Main Campus.
+  </p>
+
+  <!-- Standard Prompt -->
+  <h2>Standardized Prompt (Zero-Shot)</h2>
+  <textarea readonly id="stdPrompt">
+Plan a one-day weekend trip in Fort Collins.
+  </textarea>
+
+  <button onclick="navigator.clipboard.writeText(document.getElementById('stdPrompt').value)">
+    Copy Standardized Prompt
+  </button>
+
+  <!-- Chain-of-Thought Prompt -->
+  <h2>Chain-of-Thought (CoT) Prompt</h2>
+  <textarea readonly id="cotPrompt">
+Plan a one-day weekend trip in Fort Collins for a college student.
+
+Think step-by-step.
+
+Assume the student:
+- Does not have a car
+- Starts the trip at CSU Main Campus
+- Must rely on public transit (Transfort), walking, or biking
+- Has a student budget (total under $40, not including food)
+- Prefers activities within 30 minutes travel time
+- Wants a mix of nature, food, and something fun
+
+Step-by-step reasoning:
+1) List assumptions (weather, student lifestyle, budget).
+2) Check travel constraints (transit options, bike/walk times).
+3) Create 2–3 itinerary options.
+4) Compare pros and cons of each option.
+5) Recommend one final itinerary and provide an hour-by-hour schedule, starting and ending at CSU Main Campus.
+  </textarea>
+
+  <button onclick="navigator.clipboard.writeText(document.getElementById('cotPrompt').value)">
+    Copy CoT Prompt
+  </button>
+
+  <a href="index.html" class="home">← Back to activities</a>
+</body>
+</html>
