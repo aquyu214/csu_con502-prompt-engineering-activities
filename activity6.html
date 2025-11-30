@@ -12,7 +12,7 @@
     }
     textarea {
       width: 100%; 
-      height: 150px; 
+      height: 160px; 
       padding: 0.6rem;
       font-family: inherit; 
       font-size: 0.9rem;
@@ -40,36 +40,90 @@
 
   <h2>Research Scenario</h2>
   <p>
-    Imagine a first-year Construction Management (CM) graduate student who wants to use AI
-    tools (ChatGPT, Gemini, Claude, etc.) to support their research. They know AI can help,
-    but they are not sure <em>how</em>, <em>where</em>, or <em>when</em> to use it responsibly.
+    A first-year Construction Management (CM) graduate student wants to use AI tools 
+    to support their research but does not know exactly <em>how</em> AI can help during each stage
+    of the research process.
   </p>
 
   <p>
-    Your goal is to design a prompt that will make an AI model generate a 
-    <strong>structured, practical guide</strong> on how CM graduate students can use AI 
-    throughout the research process.
+    Your challenge is to design a prompt that will make an AI model generate a 
+    <strong>structured, document-style guide</strong> on how CM graduate students 
+    can use AI responsibly and effectively throughout the research lifecycle.
   </p>
 
   <hr>
 
   <h2>Your Task</h2>
   <p>
-    Use <strong>any prompt engineering techniques you'd like</strong> to create a highly effective prompt, 
-    then use it to generate a research-support guide for:
+    Use <strong>any prompt engineering techniques you'd like</strong> to create an optimized prompt,
+    then use it to generate a clear, structured <strong>document-style guide</strong> that covers:
   </p>
 
   <ul>
-    <li>Research planning and refining research questions</li>
-    <li>Literature search strategies and summarizing articles</li>
-    <li>Brainstorming survey/interview questions</li>
-    <li>Developing coding schemes and qualitative analysis</li>
-    <li>Understanding statistical concepts (not calculation)</li>
-    <li>Drafting and revising academic writing</li>
-    <li>Ethical and responsible use of AI in research</li>
-    <li>Construction-focused examples (safety, scheduling, BIM, productivity)</li>
+    <li>Planning research topics and refining research questions</li>
+    <li>Developing search strings and summarizing literature</li>
+    <li>Designing surveys and interview protocols</li>
+    <li>Qualitative coding support and conceptual statistics explanations</li>
+    <li>Drafting, revising, and organizing academic writing</li>
+    <li>Ethical and responsible AI use in CM research</li>
+    <li>Construction-specific examples (safety, scheduling, BIM, productivity)</li>
   </ul>
 
   <p>
-    The final output should be a <strong>graduate-level guide</strong>:
-    clear, structured, realistic,
+    Your final output should look like a <strong>mini document or research-support guide</strong>.
+  </p>
+
+  <h3>You may use:</h3>
+  <ul>
+    <li>Zero-shot prompting</li>
+    <li>One-shot or few-shot prompting</li>
+    <li>Role prompting</li>
+    <li>Chain-of-Thought prompting</li>
+    <li>Contextual prompting</li>
+    <li><strong>Automatic Prompt Engineering (APE)</strong></li>
+    <li>Prompt rewriting or mutation</li>
+    <li>Any structured or creative prompting strategy you prefer</li>
+  </ul>
+
+  <hr>
+
+  <h2>Start with a Simple Prompt</h2>
+  <p>Begin with something basic, such as:</p>
+
+  <textarea readonly>
+Explain how AI can help with graduate-level construction management research.
+  </textarea>
+
+  <p>
+    This starting prompt is <em>intentionally vague</em>. 
+    Your goal is to improve it dramatically using prompt engineering.
+  </p>
+
+  <hr>
+
+  <h2>Optional APE Instruction</h2>
+  <p>You may copy this to help generate better prompt variations:</p>
+
+  <textarea readonly id="prompt">
+Generate 5 improved versions of this prompt that will produce a structured, document-style, graduate-level guide on how AI tools can support construction management research across planning, literature review, data collection, analysis, writing, ethics, and practical examples. The audience is first-year CM graduate students. Rank the 5 prompts and explain why each version is stronger or weaker.
+  </textarea>
+
+  <button onclick="navigator.clipboard.writeText(document.getElementById('prompt').value)">
+    Copy Prompt
+  </button>
+
+  <hr>
+
+  <h2>Instructions</h2>
+  <ul>
+    <li>Start with the simple prompt provided above.</li>
+    <li>Use <strong>any prompt-engineering techniques</strong> to improve it.</li>
+    <li>Optionally use APE to generate multiple improved prompt versions.</li>
+    <li>Select your <strong>best optimized prompt</strong>.</li>
+    <li>Use that optimized prompt to generate a <strong>document-style guide</strong>.</li>
+    <li><strong>Copy the final guide into a Word document (.docx)</strong>.</li>
+    <li><strong>Export your Word document as a PDF file.</strong></li>
+    <li>Submit the <strong>PDF version only</strong> for class voting.</li>
+  </ul>
+
+  <p><strong>Name your submission:</s
